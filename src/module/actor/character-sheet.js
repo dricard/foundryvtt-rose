@@ -1,12 +1,12 @@
-import { OseActor } from "./entity.js";
-import { OseActorSheet } from "./actor-sheet.js";
+import { RoseActor } from "./entity.js";
+import { RoseActorSheet } from "./actor-sheet.js";
 import { OseCharacterModifiers } from "../dialog/character-modifiers.js";
 import { OseCharacterCreator } from "../dialog/character-creation.js";
 
 /**
  * Extend the basic ActorSheet with some very simple modifications
  */
-export class OseActorSheetCharacter extends OseActorSheet {
+export class RoseActorSheetCharacter extends RoseActorSheet {
   constructor(...args) {
     super(...args);
   }
@@ -19,7 +19,7 @@ export class OseActorSheetCharacter extends OseActorSheet {
    */
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
-      classes: ["ose", "sheet", "actor", "character"],
+      classes: ["rose", "sheet", "actor", "character"],
       template: "systems/ose/templates/actors/character-sheet.html",
       width: 450,
       height: 530,
@@ -48,9 +48,9 @@ export class OseActorSheetCharacter extends OseActorSheet {
   getData() {
     const data = super.getData();
 
-    data.config.ascendingAC = game.settings.get("ose", "ascendingAC");
-    data.config.initiative = game.settings.get("ose", "initiative") != "group";
-    data.config.encumbrance = game.settings.get("ose", "encumbranceOption");
+    data.config.ascendingAC = game.settings.get("rose", "ascendingAC");
+    data.config.initiative = game.settings.get("rose", "initiative") != "group";
+    data.config.encumbrance = game.settings.get("rose", "encumbranceOption");
 
     data.isNew = this.actor.isNew();
     return data;
@@ -58,7 +58,7 @@ export class OseActorSheetCharacter extends OseActorSheet {
 
 
   async _chooseLang() {
-    let choices = CONFIG.OSE.languages;
+    let choices = CONFIG.ROSE.languages;
 
     let templateData = { choices: choices },
       dlg = await renderTemplate(
@@ -72,7 +72,7 @@ export class OseActorSheetCharacter extends OseActorSheet {
         content: dlg,
         buttons: {
           ok: {
-            label: game.i18n.localize("OSE.Ok"),
+            label: game.i18n.localize("ROSE.Ok"),
             icon: '<i class="fas fa-check"></i>',
             callback: (html) => {
               resolve({
@@ -82,7 +82,7 @@ export class OseActorSheetCharacter extends OseActorSheet {
           },
           cancel: {
             icon: '<i class="fas fa-times"></i>',
-            label: game.i18n.localize("OSE.Cancel"),
+            label: game.i18n.localize("ROSE.Cancel"),
           },
         },
         default: "ok",
@@ -94,7 +94,7 @@ export class OseActorSheetCharacter extends OseActorSheet {
     const data = this.actor.data.data;
     let update = duplicate(data[table]);
     this._chooseLang().then((dialogInput) => {
-      const name = CONFIG.OSE.languages[dialogInput.choice];
+      const name = CONFIG.ROSE.languages[dialogInput.choice];
       if (update.value) {
         update.value.push(name);
       } else {

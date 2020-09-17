@@ -1,10 +1,10 @@
-export class OseCombat {
+export class RoseCombat {
   static rollInitiative(combat, data) {
     // Check groups
     data.combatants = [];
     let groups = {};
     combat.data.combatants.forEach((cbt) => {
-      groups[cbt.flags.ose.group] = { present: true };
+      groups[cbt.flags.rose.group] = { present: true };
       data.combatants.push(cbt);
     });
 
@@ -12,7 +12,7 @@ export class OseCombat {
     Object.keys(groups).forEach((group) => {
       let roll = new Roll("1d6").roll();
       roll.toMessage({
-        flavor: game.i18n.format('OSE.roll.initiative', { group: CONFIG["OSE"].colors[group] }),
+        flavor: game.i18n.format('ROSE.roll.initiative', { group: CONFIG["rose"].colors[group] }),
       });
       groups[group].initiative = roll.total;
     });
@@ -26,14 +26,14 @@ export class OseCombat {
         data.combatants[i].initiative = -789;
       } else {
         data.combatants[i].initiative =
-          groups[data.combatants[i].flags.ose.group].initiative;
+          groups[data.combatants[i].flags.rose.group].initiative;
       }
     }
     combat.setupTurns();
   }
 
   static async resetInitiative(combat, data) {
-    let reroll = game.settings.get("ose", "rerollInitiative");
+    let reroll = game.settings.get("rose", "rerollInitiative");
     if (!["reset", "reroll"].includes(reroll)) {
       return;
     }
@@ -66,7 +66,7 @@ export class OseCombat {
           token: c.token._id,
           alias: c.token.name
         },
-        flavor: game.i18n.format('OSE.roll.individualInit', { name: c.token.name })
+        flavor: game.i18n.format('ROSE.roll.individualInit', { name: c.token.name })
       }, {});
       const chatData = roll.toMessage(messageData, { rollMode, create: false });
 
@@ -94,18 +94,18 @@ export class OseCombat {
       // Append spellcast and retreat
       const controls = $(ct).find(".combatant-controls .combatant-control");
       const cmbtant = object.combat.getCombatant(ct.dataset.combatantId);
-      const moveActive = cmbtant.flags.ose && cmbtant.flags.ose.moveInCombat ? "active" : "";
+      const moveActive = cmbtant.flags.rose && cmbtant.flags.rose.moveInCombat ? "active" : "";
       controls.eq(1).after(
         `<a class='combatant-control move-combat ${moveActive}'><i class='fas fa-walking'></i></a>`
       );
-      const spellActive = cmbtant.flags.ose && cmbtant.flags.ose.prepareSpell ? "active" : "";
+      const spellActive = cmbtant.flags.rose && cmbtant.flags.rose.prepareSpell ? "active" : "";
       controls.eq(1).after(
         `<a class='combatant-control prepare-spell ${spellActive}'><i class='fas fa-magic'></i></a>`
       );
     });
-    OseCombat.announceListener(html);
+    RoseCombat.announceListener(html);
 
-    let init = game.settings.get("ose", "initiative") === "group";
+    let init = game.settings.get("rose", "initiative") === "group";
     if (!init) {
       return;
     }
@@ -125,19 +125,19 @@ export class OseCombat {
 
       // Get group color
       const cmbtant = object.combat.getCombatant(ct.dataset.combatantId);
-      let color = cmbtant.flags.ose.group;
+      let color = cmbtant.flags.rose.group;
 
       // Append colored flag
       let controls = $(ct).find(".combatant-controls");
       controls.prepend(
-        `<a class='combatant-control flag' style='color:${color}' title="${CONFIG.OSE.colors[color]}"><i class='fas fa-flag'></i></a>`
+        `<a class='combatant-control flag' style='color:${color}' title="${CONFIG.ROSE.colors[color]}"><i class='fas fa-flag'></i></a>`
       );
     });
-    OseCombat.addListeners(html);
+    RoseCombat.addListeners(html);
   }
 
   static updateCombatant(combat, combatant, data) {
-    let init = game.settings.get("ose", "initiative");
+    let init = game.settings.get("rose", "initiative");
     // Why do you reroll ?
     if (combatant.actor.data.data.isSlow) {
       data.initiative = -789;
@@ -151,7 +151,7 @@ export class OseCombat {
           ct.initiative &&
           ct.initiative != "-789.00" &&
           ct._id != data._id &&
-          ct.flags.ose.group == combatant.flags.ose.group
+          ct.flags.rose.group == combatant.flags.rose.group
         ) {
           groupInit = ct.initiative;
           // Set init
@@ -191,7 +191,7 @@ export class OseCombat {
         return;
       }
       let currentColor = ev.currentTarget.style.color;
-      let colors = Object.keys(CONFIG.OSE.colors);
+      let colors = Object.keys(CONFIG.ROSE.colors);
       let index = colors.indexOf(currentColor);
       if (index + 1 == colors.length) {
         index = 0;
@@ -210,7 +210,7 @@ export class OseCombat {
         return;
       }
       let data = {};
-      OseCombat.rollInitiative(game.combat, data);
+      RoseCombat.rollInitiative(game.combat, data);
       game.combat.update({ data: data }).then(() => {
         game.combat.setupTurns();
       });
@@ -247,28 +247,28 @@ export class OseCombat {
     options.unshift({
       name: "Set Active",
       icon: '<i class="fas fa-star-of-life"></i>',
-      callback: OseCombat.activateCombatant
+      callback: RoseCombat.activateCombatant
     });
   }
 
   static async preUpdateCombat(combat, data, diff, id) {
-    let init = game.settings.get("ose", "initiative");
-    let reroll = game.settings.get("ose", "rerollInitiative");
+    let init = game.settings.get("rose", "initiative");
+    let reroll = game.settings.get("rose", "rerollInitiative");
     if (!data.round) {
       return;
     }
     if (data.round !== 1) {
       if (reroll === "reset") {
-        OseCombat.resetInitiative(combat, data, diff, id);
+        RoseCombat.resetInitiative(combat, data, diff, id);
         return;
       } else if (reroll === "keep") {
         return;
       }
     }
     if (init === "group") {
-      OseCombat.rollInitiative(combat, data, diff, id);
+      RoseCombat.rollInitiative(combat, data, diff, id);
     } else if (init === "individual") {
-      OseCombat.individualInitiative(combat, data, diff, id);
+      RoseCombat.individualInitiative(combat, data, diff, id);
     }
   }
 }

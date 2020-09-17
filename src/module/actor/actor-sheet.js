@@ -1,7 +1,7 @@
-import { OseActor } from "./entity.js";
+import { RoseActor } from "./entity.js";
 import { OseEntityTweaks } from "../dialog/entity-tweaks.js";
 
-export class OseActorSheet extends ActorSheet {
+export class RoseActorSheet extends ActorSheet {
   constructor(...args) {
     super(...args);
   }
@@ -10,10 +10,10 @@ export class OseActorSheet extends ActorSheet {
   getData() {
     const data = super.getData();
 
-    data.config = CONFIG.OSE;
+    data.config = CONFIG.ROSE;
     // Settings
-    data.config.ascendingAC = game.settings.get("ose", "ascendingAC");
-    data.config.encumbrance = game.settings.get("ose", "encumbranceOption");
+    data.config.ascendingAC = game.settings.get("rose", "ascendingAC");
+    data.config.encumbrance = game.settings.get("rose", "encumbranceOption");
 
     // Prepare owned items
     this._prepareItems(data);
@@ -252,7 +252,7 @@ export class OseActorSheet extends ActorSheet {
     if (this.options.editable && canConfigure) {
       buttons = [
         {
-          label: game.i18n.localize("OSE.dialog.tweaks"),
+          label: game.i18n.localize("ROSE.dialog.tweaks"),
           class: "configure-actor",
           icon: "fas fa-code",
           onclick: (ev) => this._onConfigureActor(ev),

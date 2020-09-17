@@ -136,31 +136,31 @@ export class OseDice {
       : 0;
     result.victim = data.roll.target ? data.roll.target.data.name : null;
 
-    if (game.settings.get("ose", "ascendingAC")) {
+    if (game.settings.get("rose", "ascendingAC")) {
       if (roll.total < targetAac) {
         result.details = game.i18n.format(
-          "OSE.messages.AttackAscendingFailure",
+          "ROSE.messages.AttackAscendingFailure",
           {
             bonus: result.target,
           }
         );
         return result;
       }
-      result.details = game.i18n.format("OSE.messages.AttackAscendingSuccess", {
+      result.details = game.i18n.format("ROSE.messages.AttackAscendingSuccess", {
         result: roll.total,
       });
       result.isSuccess = true;
     } else {
       // B/X Historic THAC0 Calculation
       if (result.target - roll.total > targetAc) {
-        result.details = game.i18n.format("OSE.messages.AttackFailure", {
+        result.details = game.i18n.format("ROSE.messages.AttackFailure", {
           bonus: result.target,
         });
         return result;
       }
       result.isSuccess = true;
       let value = Math.clamped(result.target - roll.total, -3, 9);
-      result.details = game.i18n.format("OSE.messages.AttackSuccess", {
+      result.details = game.i18n.format("ROSE.messages.AttackSuccess", {
         result: value,
         bonus: result.target,
       });
@@ -187,7 +187,7 @@ export class OseDice {
       title: title,
       flavor: flavor,
       data: data,
-      config: CONFIG.OSE,
+      config: CONFIG.ROSE,
     };
 
     // Optionally include a situational bonus
@@ -291,7 +291,7 @@ export class OseDice {
 
     let buttons = {
       ok: {
-        label: game.i18n.localize("OSE.Roll"),
+        label: game.i18n.localize("ROSE.Roll"),
         icon: '<i class="fas fa-dice-d20"></i>',
         callback: (html) => {
           rolled = true;
@@ -300,19 +300,19 @@ export class OseDice {
         },
       },
       magic: {
-        label: game.i18n.localize("OSE.saves.magic.short"),
+        label: game.i18n.localize("ROSE.saves.magic.short"),
         icon: '<i class="fas fa-magic"></i>',
         callback: (html) => {
           rolled = true;
           rollData.form = html[0].children[0];
           rollData.data.roll.target = parseInt(rollData.data.roll.target) + parseInt(rollData.data.roll.magic);
-          rollData.title += ` ${game.i18n.localize("OSE.saves.magic.short")} (${rollData.data.roll.magic})`;
+          rollData.title += ` ${game.i18n.localize("ROSE.saves.magic.short")} (${rollData.data.roll.magic})`;
           roll = OseDice.sendRoll(rollData);
         },
       },
       cancel: {
         icon: '<i class="fas fa-times"></i>',
-        label: game.i18n.localize("OSE.Cancel"),
+        label: game.i18n.localize("ROSE.Cancel"),
         callback: (html) => { },
       },
     };
@@ -366,7 +366,7 @@ export class OseDice {
 
     let buttons = {
       ok: {
-        label: game.i18n.localize("OSE.Roll"),
+        label: game.i18n.localize("ROSE.Roll"),
         icon: '<i class="fas fa-dice-d20"></i>',
         callback: (html) => {
           rolled = true;
@@ -378,7 +378,7 @@ export class OseDice {
       },
       cancel: {
         icon: '<i class="fas fa-times"></i>',
-        label: game.i18n.localize("OSE.Cancel"),
+        label: game.i18n.localize("ROSE.Cancel"),
         callback: (html) => { },
       },
     };

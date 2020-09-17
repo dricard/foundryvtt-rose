@@ -1,6 +1,6 @@
 import { OseDice } from "../dice.js";
 
-export class OseActor extends Actor {
+export class RoseActor extends Actor {
   /**
    * Extends data from base Actor class
    */
@@ -17,7 +17,7 @@ export class OseActor extends Actor {
     this.computeTreasure();
 
     // Determine Initiative
-    if (game.settings.get("ose", "initiative") != "group") {
+    if (game.settings.get("rose", "initiative") != "group") {
       data.initiative.value = data.initiative.mod;
       if (this.data.type == "character") {
         data.initiative.value += data.scores.dex.mod;
@@ -42,7 +42,7 @@ export class OseActor extends Actor {
     }).then(() => {
       const speaker = ChatMessage.getSpeaker({ actor: this });
       ChatMessage.create({
-        content: game.i18n.format("OSE.messages.GetExperience", {
+        content: game.i18n.format("ROSE.messages.GetExperience", {
           name: this.name,
           value: modified,
         }),
@@ -71,7 +71,7 @@ export class OseActor extends Actor {
   generateSave(hd) {
     let saves = {};
     for (let i = 0; i <= hd; i++) {
-      let tmp = CONFIG.OSE.monster_saves[i];
+      let tmp = CONFIG.ROSE.monster_saves[i];
       if (tmp) {
         saves = tmp;
       }
@@ -115,7 +115,7 @@ export class OseActor extends Actor {
   }
 
   rollSave(save, options = {}) {
-    const label = game.i18n.localize(`OSE.saves.${save}.long`);
+    const label = game.i18n.localize(`ROSE.saves.${save}.long`);
     const rollParts = ["1d20"];
 
     const data = {
@@ -125,7 +125,7 @@ export class OseActor extends Actor {
         target: this.data.data.saves[save].value,
         magic: this.data.type === "character" ? this.data.data.scores.wis.mod : 0,
       },
-      details: game.i18n.format("OSE.roll.details.save", { save: label }),
+      details: game.i18n.format("ROSE.roll.details.save", { save: label }),
     };
 
     let skip = options.event && options.event.ctrlKey;
@@ -139,8 +139,8 @@ export class OseActor extends Actor {
       data: data,
       skipDialog: skip,
       speaker: ChatMessage.getSpeaker({ actor: this }),
-      flavor: game.i18n.format("OSE.roll.save", { save: label }),
-      title: game.i18n.format("OSE.roll.save", { save: label }),
+      flavor: game.i18n.format("ROSE.roll.save", { save: label }),
+      title: game.i18n.format("ROSE.roll.save", { save: label }),
     });
   }
 
@@ -162,13 +162,13 @@ export class OseActor extends Actor {
       data: data,
       skipDialog: true,
       speaker: ChatMessage.getSpeaker({ actor: this }),
-      flavor: game.i18n.localize("OSE.roll.morale"),
-      title: game.i18n.localize("OSE.roll.morale"),
+      flavor: game.i18n.localize("ROSE.roll.morale"),
+      title: game.i18n.localize("ROSE.roll.morale"),
     });
   }
 
   rollLoyalty(options = {}) {
-    const label = game.i18n.localize(`OSE.roll.loyalty`);
+    const label = game.i18n.localize(`ROSE.roll.loyalty`);
     const rollParts = ["2d6"];
 
     const data = {
@@ -199,19 +199,19 @@ export class OseActor extends Actor {
       roll: {
         type: "table",
         table: {
-          2: game.i18n.format("OSE.reaction.Hostile", {
+          2: game.i18n.format("ROSE.reaction.Hostile", {
             name: this.data.name,
           }),
-          3: game.i18n.format("OSE.reaction.Unfriendly", {
+          3: game.i18n.format("ROSE.reaction.Unfriendly", {
             name: this.data.name,
           }),
-          6: game.i18n.format("OSE.reaction.Neutral", {
+          6: game.i18n.format("ROSE.reaction.Neutral", {
             name: this.data.name,
           }),
-          9: game.i18n.format("OSE.reaction.Indifferent", {
+          9: game.i18n.format("ROSE.reaction.Indifferent", {
             name: this.data.name,
           }),
-          12: game.i18n.format("OSE.reaction.Friendly", {
+          12: game.i18n.format("ROSE.reaction.Friendly", {
             name: this.data.name,
           }),
         },
@@ -227,13 +227,13 @@ export class OseActor extends Actor {
       data: data,
       skipDialog: skip,
       speaker: ChatMessage.getSpeaker({ actor: this }),
-      flavor: game.i18n.localize("OSE.reaction.check"),
-      title: game.i18n.localize("OSE.reaction.check"),
+      flavor: game.i18n.localize("ROSE.reaction.check"),
+      title: game.i18n.localize("ROSE.reaction.check"),
     });
   }
 
   rollCheck(score, options = {}) {
-    const label = game.i18n.localize(`OSE.scores.${score}.long`);
+    const label = game.i18n.localize(`ROSE.scores.${score}.long`);
     const rollParts = ["1d20"];
 
     const data = {
@@ -243,7 +243,7 @@ export class OseActor extends Actor {
         target: this.data.data.scores[score].value,
       },
 
-      details: game.i18n.format("OSE.roll.details.attribute", {
+      details: game.i18n.format("ROSE.roll.details.attribute", {
         score: label,
       }),
     };
@@ -257,13 +257,13 @@ export class OseActor extends Actor {
       data: data,
       skipDialog: skip,
       speaker: ChatMessage.getSpeaker({ actor: this }),
-      flavor: game.i18n.format("OSE.roll.attribute", { attribute: label }),
-      title: game.i18n.format("OSE.roll.attribute", { attribute: label }),
+      flavor: game.i18n.format("ROSE.roll.attribute", { attribute: label }),
+      title: game.i18n.format("ROSE.roll.attribute", { attribute: label }),
     });
   }
 
   rollHitDice(options = {}) {
-    const label = game.i18n.localize(`OSE.roll.hd`);
+    const label = game.i18n.localize(`ROSE.roll.hd`);
     const rollParts = [this.data.data.hp.hd];
     if (this.data.type == "character") {
       rollParts.push(this.data.data.scores.con.mod);
@@ -314,13 +314,13 @@ export class OseActor extends Actor {
       data: data,
       skipDialog: true,
       speaker: ChatMessage.getSpeaker({ actor: this }),
-      flavor: game.i18n.format("OSE.roll.appearing", { type: label }),
-      title: game.i18n.format("OSE.roll.appearing", { type: label }),
+      flavor: game.i18n.format("ROSE.roll.appearing", { type: label }),
+      title: game.i18n.format("ROSE.roll.appearing", { type: label }),
     });
   }
 
   rollExploration(expl, options = {}) {
-    const label = game.i18n.localize(`OSE.exploration.${expl}.long`);
+    const label = game.i18n.localize(`ROSE.exploration.${expl}.long`);
     const rollParts = ["1d6"];
 
     const data = {
@@ -329,7 +329,7 @@ export class OseActor extends Actor {
         type: "below",
         target: this.data.data.exploration[expl],
       },
-      details: game.i18n.format("OSE.roll.details.exploration", {
+      details: game.i18n.format("ROSE.roll.details.exploration", {
         expl: label,
       }),
     };
@@ -343,8 +343,8 @@ export class OseActor extends Actor {
       data: data,
       skipDialog: skip,
       speaker: ChatMessage.getSpeaker({ actor: this }),
-      flavor: game.i18n.format("OSE.roll.exploration", { exploration: label }),
-      title: game.i18n.format("OSE.roll.exploration", { exploration: label }),
+      flavor: game.i18n.format("ROSE.roll.exploration", { exploration: label }),
+      title: game.i18n.format("ROSE.roll.exploration", { exploration: label }),
     });
   }
 
@@ -378,8 +378,8 @@ export class OseActor extends Actor {
       data: rollData,
       skipDialog: true,
       speaker: ChatMessage.getSpeaker({ actor: this }),
-      flavor: `${attData.label} - ${game.i18n.localize("OSE.Damage")}`,
-      title: `${attData.label} - ${game.i18n.localize("OSE.Damage")}`,
+      flavor: `${attData.label} - ${game.i18n.localize("ROSE.Damage")}`,
+      title: `${attData.label} - ${game.i18n.localize("ROSE.Damage")}`,
     });
   }
 
@@ -401,19 +401,19 @@ export class OseActor extends Actor {
     const data = this.data.data;
     const rollParts = ["1d20"];
     const dmgParts = [];
-    let label = game.i18n.format("OSE.roll.attacks", {
+    let label = game.i18n.format("ROSE.roll.attacks", {
       name: this.data.name,
     });
     if (!attData.item) {
       dmgParts.push("1d6");
     } else {
-      label = game.i18n.format("OSE.roll.attacksWith", {
+      label = game.i18n.format("ROSE.roll.attacksWith", {
         name: attData.item.name,
       });
       dmgParts.push(attData.item.data.damage);
     }
 
-    let ascending = game.settings.get("ose", "ascendingAC");
+    let ascending = game.settings.get("rose", "ascendingAC");
     if (ascending) {
       rollParts.push(data.thac0.bba.toString());
     }
@@ -500,7 +500,7 @@ export class OseActor extends Actor {
       return;
     }
     const data = this.data.data;
-    let option = game.settings.get("ose", "encumbranceOption");
+    let option = game.settings.get("rose", "encumbranceOption");
 
     // Compute encumbrance
     let totalWeight = 0;
@@ -538,7 +538,7 @@ export class OseActor extends Actor {
 
   _calculateMovement() {
     const data = this.data.data;
-    let option = game.settings.get("ose", "encumbranceOption");
+    let option = game.settings.get("rose", "encumbranceOption");
     let weight = data.encumbrance.value;
     let delta = data.encumbrance.max - 1600;
     if (["detailed", "complete"].includes(option)) {
@@ -576,7 +576,7 @@ export class OseActor extends Actor {
           data.movement.base = 60;
           break;
       }
-      if (weight > game.settings.get("ose", "significantTreasure")) {
+      if (weight > game.settings.get("rose", "significantTreasure")) {
         data.movement.base -= 30;
       }
     }
@@ -642,27 +642,27 @@ export class OseActor extends Actor {
       16: 2,
       18: 3,
     };
-    data.scores.str.mod = OseActor._valueFromTable(
+    data.scores.str.mod = RoseActor._valueFromTable(
       standard,
       data.scores.str.value
     );
-    data.scores.int.mod = OseActor._valueFromTable(
+    data.scores.int.mod = RoseActor._valueFromTable(
       standard,
       data.scores.int.value
     );
-    data.scores.dex.mod = OseActor._valueFromTable(
+    data.scores.dex.mod = RoseActor._valueFromTable(
       standard,
       data.scores.dex.value
     );
-    data.scores.cha.mod = OseActor._valueFromTable(
+    data.scores.cha.mod = RoseActor._valueFromTable(
       standard,
       data.scores.cha.value
     );
-    data.scores.wis.mod = OseActor._valueFromTable(
+    data.scores.wis.mod = RoseActor._valueFromTable(
       standard,
       data.scores.wis.value
     );
-    data.scores.con.mod = OseActor._valueFromTable(
+    data.scores.con.mod = RoseActor._valueFromTable(
       standard,
       data.scores.con.value
     );
@@ -677,11 +677,11 @@ export class OseActor extends Actor {
       16: 1,
       18: 2,
     };
-    data.scores.dex.init = OseActor._valueFromTable(
+    data.scores.dex.init = RoseActor._valueFromTable(
       capped,
       data.scores.dex.value
     );
-    data.scores.cha.npc = OseActor._valueFromTable(
+    data.scores.cha.npc = RoseActor._valueFromTable(
       capped,
       data.scores.cha.value
     );
@@ -696,30 +696,30 @@ export class OseActor extends Actor {
       16: 4,
       18: 5,
     };
-    data.exploration.odMod = OseActor._valueFromTable(
+    data.exploration.odMod = RoseActor._valueFromTable(
       od,
       data.scores.str.value
     );
 
     const literacy = {
       0: "",
-      3: "OSE.Illiterate",
-      6: "OSE.LiteracyBasic",
-      9: "OSE.Literate",
+      3: "ROSE.Illiterate",
+      6: "ROSE.LiteracyBasic",
+      9: "ROSE.Literate",
     };
-    data.languages.literacy = OseActor._valueFromTable(
+    data.languages.literacy = RoseActor._valueFromTable(
       literacy,
       data.scores.int.value
     );
 
     const spoken = {
-      0: "OSE.NativeBroken",
-      3: "OSE.Native",
-      13: "OSE.NativePlus1",
-      16: "OSE.NativePlus2",
-      18: "OSE.NativePlus3",
+      0: "ROSE.NativeBroken",
+      3: "ROSE.Native",
+      13: "ROSE.NativePlus1",
+      16: "ROSE.NativePlus2",
+      18: "ROSE.NativePlus3",
     };
-    data.languages.spoken = OseActor._valueFromTable(
+    data.languages.spoken = RoseActor._valueFromTable(
       spoken,
       data.scores.int.value
     );

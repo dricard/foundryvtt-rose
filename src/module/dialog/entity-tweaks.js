@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-import { OseActor } from '../actor/entity.js';
+import { RoseActor } from '../actor/entity.js';
 
 export class OseEntityTweaks extends FormApplication {
   static get defaultOptions() {
@@ -18,7 +18,7 @@ export class OseEntityTweaks extends FormApplication {
    * @type {String}
    */
   get title() {
-    return `${this.object.name}: ${game.i18n.localize('OSE.dialog.tweaks')}`;
+    return `${this.object.name}: ${game.i18n.localize('ROSE.dialog.tweaks')}`;
   }
 
   /* -------------------------------------------- */
@@ -33,7 +33,7 @@ export class OseEntityTweaks extends FormApplication {
       data.isCharacter = true;
     }
     data.user = game.user;
-    data.config = CONFIG.OSE;
+    data.config = CONFIG.ROSE;
     return data;
   }
 

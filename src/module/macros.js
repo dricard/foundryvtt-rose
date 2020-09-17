@@ -16,7 +16,7 @@ export async function createOseMacro(data, slot) {
     const item = data.data;
   
     // Create the macro command
-    const command = `game.ose.rollItemMacro("${item.name}");`;
+    const command = `game.rose.rollItemMacro("${item.name}");`;
     let macro = game.macros.entities.find(m => (m.name === item.name) && (m.command === command));
     if ( !macro ) {
       macro = await Macro.create({

@@ -1,7 +1,7 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## [1.0.5] - 2020-09-17: Fork from u-man's OSE project
+## [1.0.5] - 2020-09-17: Fork from u-man's ROSE project
 ### Changed
 - renamed rose to distinguish the two forks (Ricard's Old-School Essentials)
 

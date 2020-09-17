@@ -1,10 +1,10 @@
-import { OseActor } from '../actor/entity.js';
+import { RoseActor } from '../actor/entity.js';
 import { OseDice } from "../dice.js";
 
 export class OseCharacterCreator extends FormApplication {
   static get defaultOptions() {
     const options = super.defaultOptions;
-    options.classes = ["ose", "dialog", "creator"],
+    options.classes = ["rose", "dialog", "creator"],
       options.id = 'character-creator';
     options.template =
       'systems/ose/templates/actors/dialogs/character-creation.html';
@@ -19,7 +19,7 @@ export class OseCharacterCreator extends FormApplication {
    * @type {String}
    */
   get title() {
-    return `${this.object.name}: ${game.i18n.localize('OSE.dialog.generator')}`;
+    return `${this.object.name}: ${game.i18n.localize('ROSE.dialog.generator')}`;
   }
 
   /* -------------------------------------------- */
@@ -31,7 +31,7 @@ export class OseCharacterCreator extends FormApplication {
   getData() {
     let data = this.object.data;
     data.user = game.user;
-    data.config = CONFIG.OSE;
+    data.config = CONFIG.ROSE;
     data.counters = {
       str: 0,
       wis: 0,
@@ -85,7 +85,7 @@ export class OseCharacterCreator extends FormApplication {
     // Increase counter
     this.object.data.counters[score]++;
 
-    const label = score != "gold" ? game.i18n.localize(`OSE.scores.${score}.long`) : "Gold";
+    const label = score != "gold" ? game.i18n.localize(`ROSE.scores.${score}.long`) : "Gold";
     const rollParts = ["3d6"];
     const data = {
       roll: {
@@ -99,8 +99,8 @@ export class OseCharacterCreator extends FormApplication {
       data: data,
       skipDialog: true,
       speaker: ChatMessage.getSpeaker({ actor: this }),
-      flavor: game.i18n.format('OSE.dialog.generateScore', { score: label, count: this.object.data.counters[score] }),
-      title: game.i18n.format('OSE.dialog.generateScore', { score: label, count: this.object.data.counters[score] }),
+      flavor: game.i18n.format('ROSE.dialog.generateScore', { score: label, count: this.object.data.counters[score] }),
+      title: game.i18n.format('ROSE.dialog.generateScore', { score: label, count: this.object.data.counters[score] }),
     });
   }
 
@@ -116,9 +116,9 @@ export class OseCharacterCreator extends FormApplication {
     const gold = $(this.form.children).find('.gold-value').val();
     const speaker = ChatMessage.getSpeaker({ actor: this });
     const templateData = {
-      config: CONFIG.OSE,
+      config: CONFIG.ROSE,
       scores: scores,
-      title: game.i18n.localize("OSE.dialog.generator"),
+      title: game.i18n.localize("ROSE.dialog.generator"),
       stats: this.object.data.stats,
       gold: gold
     }

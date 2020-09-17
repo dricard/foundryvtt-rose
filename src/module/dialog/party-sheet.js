@@ -4,7 +4,7 @@ export class OsePartySheet extends FormApplication {
   
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
-      classes: ["ose", "dialog", "party-sheet"],
+      classes: ["rose", "dialog", "party-sheet"],
       template: "systems/ose/templates/apps/party-sheet.html",
       width: 280,
       height: 400,
@@ -19,7 +19,7 @@ export class OsePartySheet extends FormApplication {
    * @type {String}
    */
   get title() {
-    return game.i18n.localize("OSE.dialog.partysheet");
+    return game.i18n.localize("ROSE.dialog.partysheet");
   }
 
   /* -------------------------------------------- */
@@ -34,7 +34,7 @@ export class OsePartySheet extends FormApplication {
     };
     let data = {
       data: this.object,
-      config: CONFIG.OSE,
+      config: CONFIG.ROSE,
       user: game.user,
       settings: settings
     };
@@ -70,7 +70,7 @@ export class OsePartySheet extends FormApplication {
       buttons: {
         set: {
           icon: '<i class="fas fa-save"></i>',
-          label: game.i18n.localize("OSE.Update"),
+          label: game.i18n.localize("ROSE.Update"),
           callback: (html) => {
             let checks = html.find("input[data-action='select-actor']");
             checks.each(async (_, c) => {

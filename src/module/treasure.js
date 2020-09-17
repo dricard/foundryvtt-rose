@@ -1,15 +1,15 @@
 export const augmentTable = (table, html, data) => {
   // Treasure Toggle
   let head = html.find(".sheet-header");
-  const flag = table.object.getFlag("ose", "treasure");
+  const flag = table.object.getFlag("rose", "treasure");
   const treasure = flag
     ? "<div class='toggle-treasure active'></div>"
     : "<div class='toggle-treasure'></div>";
   head.append(treasure);
 
   html.find(".toggle-treasure").click((ev) => {
-    let isTreasure = table.object.getFlag("ose", "treasure");
-    table.object.setFlag("ose", "treasure", !isTreasure);
+    let isTreasure = table.object.getFlag("rose", "treasure");
+    table.object.setFlag("rose", "treasure", !isTreasure);
   });
 
   // Treasure table formatting
@@ -21,7 +21,7 @@ export const augmentTable = (table, html, data) => {
     html.find(".result-weight").first().text("Chance");
 
     // Replace Roll button
-    const roll = `<button class="roll-treasure" type="button"><i class="fas fa-gem"></i> ${game.i18n.localize('OSE.table.treasure.roll')}</button>`;
+    const roll = `<button class="roll-treasure" type="button"><i class="fas fa-gem"></i> ${game.i18n.localize('ROSE.table.treasure.roll')}</button>`;
     html.find(".sheet-footer .roll").replaceWith(roll);
   }
 
