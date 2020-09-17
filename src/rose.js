@@ -79,7 +79,7 @@ Hooks.once("ready", async () => {
   );
 });
 
-// License and KOFI infos
+// License
 Hooks.on("renderSidebarTab", async (object, html) => {
   if (object instanceof ActorDirectory) {
     party.addControl(object, html);
