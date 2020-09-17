@@ -1,9 +1,9 @@
-export class OsePartyXP extends FormApplication {
+export class RosePartyXP extends FormApplication {
 
     static get defaultOptions() {
         return mergeObject(super.defaultOptions, {
             classes: ["rose", "dialog", "party-xp"],
-            template: "systems/ose/templates/apps/party-xp.html",
+            template: "systems/rose/templates/apps/party-xp.html",
             width: 280,
             height: 400,
             resizable: false,

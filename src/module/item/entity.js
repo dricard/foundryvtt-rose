@@ -1,4 +1,4 @@
-import { OseDice } from "../dice.js";
+import { RoseDice } from "../dice.js";
 
 /**
  * Override and extend the basic :class:`Item` implementation
@@ -15,19 +15,19 @@ export class RoseItem extends Item {
     let img = CONST.DEFAULT_TOKEN;
     switch (this.data.type) {
       case "spell":
-        img = "/systems/ose/assets/default/spell.png";
+        img = "/systems/rose/assets/default/spell.png";
         break;
       case "ability":
-        img = "/systems/ose/assets/default/ability.png";
+        img = "/systems/rose/assets/default/ability.png";
         break;
       case "armor":
-        img = "/systems/ose/assets/default/armor.png";
+        img = "/systems/rose/assets/default/armor.png";
         break;
       case "weapon":
-        img = "/systems/ose/assets/default/weapon.png";
+        img = "/systems/rose/assets/default/weapon.png";
         break;
       case "item":
-        img = "/systems/ose/assets/default/item.png";
+        img = "/systems/rose/assets/default/item.png";
         break;
     }
     if (!this.data.img) this.data.img = img;
@@ -132,7 +132,7 @@ export class RoseItem extends Item {
     };
 
     // Roll and return
-    return OseDice.Roll({
+    return RoseDice.Roll({
       event: options.event,
       parts: rollParts,
       data: newData,
@@ -292,7 +292,7 @@ export class RoseItem extends Item {
     };
 
     // Render the chat card template
-    const template = `systems/ose/templates/chat/item-card.html`;
+    const template = `systems/rose/templates/chat/item-card.html`;
     const html = await renderTemplate(template, templateData);
 
     // Basic chat message data

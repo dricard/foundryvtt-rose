@@ -1,4 +1,4 @@
-export class OseDice {
+export class RoseDice {
   static digestResult(data, roll) {
     let result = {
       isSuccess: false,
@@ -51,7 +51,7 @@ export class OseDice {
     speaker = null,
     form = null,
   } = {}) {
-    const template = "systems/ose/templates/chat/roll-result.html";
+    const template = "systems/rose/templates/chat/roll-result.html";
 
     let chatData = {
       user: game.user._id,
@@ -88,7 +88,7 @@ export class OseDice {
       data.roll.blindroll = true;
     }
 
-    templateData.result = OseDice.digestResult(data, roll);
+    templateData.result = RoseDice.digestResult(data, roll);
 
     return new Promise((resolve) => {
       roll.render().then((r) => {
@@ -176,7 +176,7 @@ export class OseDice {
     speaker = null,
     form = null,
   } = {}) {
-    const template = "systems/ose/templates/chat/roll-attack.html";
+    const template = "systems/rose/templates/chat/roll-attack.html";
 
     let chatData = {
       user: game.user._id,
@@ -213,7 +213,7 @@ export class OseDice {
       data.roll.blindroll = true;
     }
 
-    templateData.result = OseDice.digestAttackResult(data, roll);
+    templateData.result = RoseDice.digestAttackResult(data, roll);
 
     return new Promise((resolve) => {
       roll.render().then((r) => {
@@ -272,7 +272,7 @@ export class OseDice {
     title = null,
   } = {}) {
     let rolled = false;
-    const template = "systems/ose/templates/chat/roll-dialog.html";
+    const template = "systems/rose/templates/chat/roll-dialog.html";
     let dialogData = {
       formula: parts.join(" "),
       data: data,
@@ -287,7 +287,7 @@ export class OseDice {
       flavor: flavor,
       speaker: speaker,
     };
-    if (skipDialog) { OseDice.sendRoll(rollData); }
+    if (skipDialog) { RoseDice.sendRoll(rollData); }
 
     let buttons = {
       ok: {
@@ -296,7 +296,7 @@ export class OseDice {
         callback: (html) => {
           rolled = true;
           rollData.form = html[0].children[0];
-          roll = OseDice.sendRoll(rollData);
+          roll = RoseDice.sendRoll(rollData);
         },
       },
       magic: {
@@ -307,7 +307,7 @@ export class OseDice {
           rollData.form = html[0].children[0];
           rollData.data.roll.target = parseInt(rollData.data.roll.target) + parseInt(rollData.data.roll.magic);
           rollData.title += ` ${game.i18n.localize("ROSE.saves.magic.short")} (${rollData.data.roll.magic})`;
-          roll = OseDice.sendRoll(rollData);
+          roll = RoseDice.sendRoll(rollData);
         },
       },
       cancel: {
@@ -343,7 +343,7 @@ export class OseDice {
     title = null,
   } = {}) {
     let rolled = false;
-    const template = "systems/ose/templates/chat/roll-dialog.html";
+    const template = "systems/rose/templates/chat/roll-dialog.html";
     let dialogData = {
       formula: parts.join(" "),
       data: data,
@@ -360,8 +360,8 @@ export class OseDice {
     };
     if (skipDialog) {
       return ["melee", "missile", "attack"].includes(data.roll.type)
-        ? OseDice.sendAttackRoll(rollData)
-        : OseDice.sendRoll(rollData);
+        ? RoseDice.sendAttackRoll(rollData)
+        : RoseDice.sendRoll(rollData);
     }
 
     let buttons = {
@@ -372,8 +372,8 @@ export class OseDice {
           rolled = true;
           rollData.form = html[0].children[0];
           roll = ["melee", "missile", "attack"].includes(data.roll.type)
-            ? OseDice.sendAttackRoll(rollData)
-            : OseDice.sendRoll(rollData);
+            ? RoseDice.sendAttackRoll(rollData)
+            : RoseDice.sendRoll(rollData);
         },
       },
       cancel: {

@@ -1,4 +1,4 @@
-import { OsePartySheet } from "./dialog/party-sheet.js";
+import { RosePartySheet } from "./dialog/party-sheet.js";
 
 export const addControl = (object, html) => {
     let control = `<button class='ose-party-sheet' type="button" title='${game.i18n.localize('ROSE.dialog.partysheet')}'><i class='fas fa-users'></i></button>`;
@@ -10,16 +10,16 @@ export const addControl = (object, html) => {
 
 export const showPartySheet = (object) => {
     event.preventDefault();
-    new OsePartySheet(object, {
+    new RosePartySheet(object, {
       top: window.screen.height / 2 - 180,
       left:window.screen.width / 2 - 140,
     }).render(true);
 }
 
 export const update = (actor, data) => {
-    if (actor.getFlag('ose', 'party')) {
+    if (actor.getFlag('rose', 'party')) {
         Object.values(ui.windows).forEach(w => {
-            if (w instanceof OsePartySheet) {
+            if (w instanceof RosePartySheet) {
                 w.render(true);
             }
         })

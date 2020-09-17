@@ -1,11 +1,11 @@
-import { OsePartyXP } from "./party-xp.js";
+import { RosePartyXP } from "./party-xp.js";
 
-export class OsePartySheet extends FormApplication {
+export class RosePartySheet extends FormApplication {
   
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       classes: ["rose", "dialog", "party-sheet"],
-      template: "systems/ose/templates/apps/party-sheet.html",
+      template: "systems/rose/templates/apps/party-sheet.html",
       width: 280,
       height: 400,
       resizable: true,
@@ -30,7 +30,7 @@ export class OsePartySheet extends FormApplication {
    */
   getData() {
     const settings = {
-      ascending: game.settings.get('ose', 'ascendingAC')
+      ascending: game.settings.get('rose', 'ascendingAC')
     };
     let data = {
       data: this.object,
@@ -55,11 +55,11 @@ export class OsePartySheet extends FormApplication {
   /* -------------------------------------------- */
 
   async _dealXP(ev) {
-    new OsePartyXP(this.object, {}).render(true);
+    new RosePartyXP(this.object, {}).render(true);
   }
 
   async _selectActors(ev) {
-    const template = "/systems/ose/templates/apps/party-select.html";
+    const template = "/systems/rose/templates/apps/party-select.html";
     const templateData = {
       actors: this.object.entities
     }
@@ -75,7 +75,7 @@ export class OsePartySheet extends FormApplication {
             let checks = html.find("input[data-action='select-actor']");
             checks.each(async (_, c) => {
               let key = c.getAttribute('name');
-              await this.object.entities[key].setFlag('ose', 'party', c.checked);
+              await this.object.entities[key].setFlag('rose', 'party', c.checked);
             });
           },
         },

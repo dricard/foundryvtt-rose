@@ -1,12 +1,12 @@
 // eslint-disable-next-line no-unused-vars
 import { RoseActor } from '../actor/entity.js';
 
-export class OseEntityTweaks extends FormApplication {
+export class RoseEntityTweaks extends FormApplication {
   static get defaultOptions() {
     const options = super.defaultOptions;
     options.id = 'sheet-tweaks';
     options.template =
-      'systems/ose/templates/actors/dialogs/tweaks-dialog.html';
+      'systems/rose/templates/actors/dialogs/tweaks-dialog.html';
     options.width = 380;
     return options;
   }

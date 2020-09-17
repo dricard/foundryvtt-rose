@@ -1,4 +1,4 @@
-import { OseDice } from "../dice.js";
+import { RoseDice } from "../dice.js";
 
 export class RoseActor extends Actor {
   /**
@@ -130,7 +130,7 @@ export class RoseActor extends Actor {
 
     let skip = options.event && options.event.ctrlKey;
 
-    const rollMethod = this.data.type == "character" ? OseDice.RollSave : OseDice.Roll;
+    const rollMethod = this.data.type == "character" ? RoseDice.RollSave : RoseDice.Roll;
 
     // Roll and return
     return rollMethod({
@@ -156,7 +156,7 @@ export class RoseActor extends Actor {
     };
 
     // Roll and return
-    return OseDice.Roll({
+    return RoseDice.Roll({
       event: options.event,
       parts: rollParts,
       data: data,
@@ -180,7 +180,7 @@ export class RoseActor extends Actor {
     };
 
     // Roll and return
-    return OseDice.Roll({
+    return RoseDice.Roll({
       event: options.event,
       parts: rollParts,
       data: data,
@@ -221,7 +221,7 @@ export class RoseActor extends Actor {
     let skip = options.event && options.event.ctrlKey;
 
     // Roll and return
-    return OseDice.Roll({
+    return RoseDice.Roll({
       event: options.event,
       parts: rollParts,
       data: data,
@@ -251,7 +251,7 @@ export class RoseActor extends Actor {
     let skip = options.event && options.event.ctrlKey;
 
     // Roll and return
-    return OseDice.Roll({
+    return RoseDice.Roll({
       event: options.event,
       parts: rollParts,
       data: data,
@@ -277,7 +277,7 @@ export class RoseActor extends Actor {
     };
 
     // Roll and return
-    return OseDice.Roll({
+    return RoseDice.Roll({
       event: options.event,
       parts: rollParts,
       data: data,
@@ -308,7 +308,7 @@ export class RoseActor extends Actor {
     };
 
     // Roll and return
-    return OseDice.Roll({
+    return RoseDice.Roll({
       event: options.event,
       parts: rollParts,
       data: data,
@@ -337,7 +337,7 @@ export class RoseActor extends Actor {
     let skip = options.event && options.event.ctrlKey;
 
     // Roll and return
-    return OseDice.Roll({
+    return RoseDice.Roll({
       event: options.event,
       parts: rollParts,
       data: data,
@@ -372,7 +372,7 @@ export class RoseActor extends Actor {
     }
 
     // Damage roll
-    OseDice.Roll({
+    RoseDice.Roll({
       event: options.event,
       parts: dmgParts,
       data: rollData,
@@ -448,7 +448,7 @@ export class RoseActor extends Actor {
     };
 
     // Roll and return
-    return OseDice.Roll({
+    return RoseDice.Roll({
       event: options.event,
       parts: rollParts,
       data: rollData,

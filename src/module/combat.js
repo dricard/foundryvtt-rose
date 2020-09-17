@@ -44,7 +44,7 @@ export class RoseCombat {
     let updates = [];
     let messages = [];
     combat.data.combatants.forEach((c, i) => {
-      // This comes from foundry.js, had to remove the update turns thing
+      // This comes from foundry.js, had to remove the update turns thing (u-man)
       // Roll initiative
       const cf = combat._getInitiativeFormula(c);
       const roll = combat._getInitiativeRoll(c, cf);
@@ -169,7 +169,7 @@ export class RoseCombat {
       let isActive = ev.currentTarget.classList.contains('active');
       game.combat.updateCombatant({
         _id: id,
-        flags: { ose: { prepareSpell: !isActive } },
+        flags: { rose: { prepareSpell: !isActive } },
       });
     });
     html.find(".combatant-control.move-combat").click((ev) => {
@@ -179,7 +179,7 @@ export class RoseCombat {
       let isActive = ev.currentTarget.classList.contains('active');
       game.combat.updateCombatant({
         _id: id,
-        flags: { ose: { moveInCombat: !isActive } },
+        flags: { rose: { moveInCombat: !isActive } },
       });
     })
   }
@@ -201,7 +201,7 @@ export class RoseCombat {
       let id = $(ev.currentTarget).closest(".combatant")[0].dataset.combatantId;
       game.combat.updateCombatant({
         _id: id,
-        flags: { ose: { group: colors[index] } },
+        flags: { rose: { group: colors[index] } },
       });
     });
 
@@ -232,7 +232,7 @@ export class RoseCombat {
         break;
     }
     data.flags = {
-      ose: {
+      rose: {
         group: color,
       },
     };

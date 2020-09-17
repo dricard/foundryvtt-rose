@@ -35,7 +35,7 @@ export class RoseItemSheet extends ItemSheet {
 
   /** @override */
   get template() {
-    const path = "systems/ose/templates/items/";
+    const path = "systems/rose/templates/items/";
     return `${path}/${this.item.data.type}-sheet.html`;
   }
 

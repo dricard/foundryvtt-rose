@@ -3,7 +3,7 @@ export const registerSettings = function () {
   game.settings.register("rose", "initiative", {
     name: game.i18n.localize("ROSE.Setting.Initiative"),
     hint: game.i18n.localize("ROSE.Setting.InitiativeHint"),
-    default: "group",
+    default: "individual",
     scope: "world",
     type: String,
     config: true,
@@ -17,7 +17,7 @@ export const registerSettings = function () {
   game.settings.register("rose", "rerollInitiative", {
     name: game.i18n.localize("ROSE.Setting.RerollInitiative"),
     hint: game.i18n.localize("ROSE.Setting.RerollInitiativeHint"),
-    default: "reset",
+    default: "reroll",
     scope: "world",
     type: String,
     config: true,
@@ -41,7 +41,7 @@ export const registerSettings = function () {
   game.settings.register("rose", "morale", {
     name: game.i18n.localize("ROSE.Setting.Morale"),
     hint: game.i18n.localize("ROSE.Setting.MoraleHint"),
-    default: false,
+    default: true,
     scope: "world",
     type: Boolean,
     config: true,
@@ -50,7 +50,7 @@ export const registerSettings = function () {
   game.settings.register("rose", "encumbranceOption", {
     name: game.i18n.localize("ROSE.Setting.Encumbrance"),
     hint: game.i18n.localize("ROSE.Setting.EncumbranceHint"),
-    default: "detailed",
+    default: "complete",
     scope: "world",
     type: String,
     config: true,

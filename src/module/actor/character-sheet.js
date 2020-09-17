@@ -1,7 +1,7 @@
 import { RoseActor } from "./entity.js";
 import { RoseActorSheet } from "./actor-sheet.js";
-import { OseCharacterModifiers } from "../dialog/character-modifiers.js";
-import { OseCharacterCreator } from "../dialog/character-creation.js";
+import { RoseCharacterModifiers } from "../dialog/character-modifiers.js";
+import { RoseCharacterCreator } from "../dialog/character-creation.js";
 
 /**
  * Extend the basic ActorSheet with some very simple modifications
@@ -20,7 +20,7 @@ export class RoseActorSheetCharacter extends RoseActorSheet {
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       classes: ["rose", "sheet", "actor", "character"],
-      template: "systems/ose/templates/actors/character-sheet.html",
+      template: "systems/rose/templates/actors/character-sheet.html",
       width: 450,
       height: 530,
       resizable: true,
@@ -35,7 +35,7 @@ export class RoseActorSheetCharacter extends RoseActorSheet {
   }
 
   generateScores() {
-    new OseCharacterCreator(this.actor, {
+    new RoseCharacterCreator(this.actor, {
       top: this.position.top + 40,
       left: this.position.left + (this.position.width - 400) / 2,
     }).render(true);
@@ -62,7 +62,7 @@ export class RoseActorSheetCharacter extends RoseActorSheet {
 
     let templateData = { choices: choices },
       dlg = await renderTemplate(
-        "/systems/ose/templates/actors/dialogs/lang-create.html",
+        "/systems/rose/templates/actors/dialogs/lang-create.html",
         templateData
       );
     //Create Dialog window
@@ -125,7 +125,7 @@ export class RoseActorSheetCharacter extends RoseActorSheet {
 
   _onShowModifiers(event) {
     event.preventDefault();
-    new OseCharacterModifiers(this.actor, {
+    new RoseCharacterModifiers(this.actor, {
       top: this.position.top + 40,
       left: this.position.left + (this.position.width - 400) / 2,
     }).render(true);

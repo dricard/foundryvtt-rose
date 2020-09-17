@@ -1,13 +1,13 @@
 // eslint-disable-next-line no-unused-vars
 import { RoseActor } from '../actor/entity.js';
 
-export class OseCharacterModifiers extends FormApplication {
+export class RoseCharacterModifiers extends FormApplication {
   static get defaultOptions() {
     const options = super.defaultOptions;
     options.classes = ["rose", "dialog", "modifiers"],
     options.id = 'sheet-modifiers';
     options.template =
-      'systems/ose/templates/actors/dialogs/modifiers-dialog.html';
+      'systems/rose/templates/actors/dialogs/modifiers-dialog.html';
     options.width = 240;
     return options;
   }

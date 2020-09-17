@@ -10,7 +10,7 @@
  * @param {number} slot     The hotbar slot to use
  * @returns {Promise}
  */
-export async function createOseMacro(data, slot) {
+export async function createRoseMacro(data, slot) {
     if ( data.type !== "Item" ) return;
     if (!( "data" in data ) ) return ui.notifications.warn("You can only create macro buttons for owned Items");
     const item = data.data;
@@ -24,7 +24,7 @@ export async function createOseMacro(data, slot) {
         type: "script",
         img: item.img,
         command: command,
-        flags: {"ose.itemMacro": true}
+        flags: {"rose.itemMacro": true}
       });
     }
     game.user.assignHotbarMacro(macro, slot);

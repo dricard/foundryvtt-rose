@@ -18,7 +18,7 @@ export class RoseActorSheetMonster extends RoseActorSheet {
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       classes: ["rose", "sheet", "monster", "actor"],
-      template: "systems/ose/templates/actors/monster-sheet.html",
+      template: "systems/rose/templates/actors/monster-sheet.html",
       width: 450,
       height: 560,
       resizable: true,
@@ -40,7 +40,7 @@ export class RoseActorSheetMonster extends RoseActorSheet {
 
     let templateData = { choices: choices },
       dlg = await renderTemplate(
-        "/systems/ose/templates/actors/dialogs/monster-saves.html",
+        "/systems/rose/templates/actors/dialogs/monster-saves.html",
         templateData
       );
     //Create Dialog window

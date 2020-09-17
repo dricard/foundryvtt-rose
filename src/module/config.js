@@ -42,7 +42,7 @@ export const ROSE = {
     white: "ROSE.colors.white"
   },
   languages: [
-    "Common",
+    "Havenspeak",
     "Lawful",
     "Chaotic",
     "Neutral",
@@ -78,15 +78,15 @@ export const ROSE = {
     charge: "ROSE.items.Charge",
   },
   tag_images: {
-    melee: "/systems/ose/assets/melee.png",
-    missile: "/systems/ose/assets/missile.png",
-    slow: "/systems/ose/assets/slow.png",
-    twohanded: "/systems/ose/assets/twohanded.png",
-    blunt: "/systems/ose/assets/blunt.png",
-    brace: "/systems/ose/assets/brace.png",
-    splash: "/systems/ose/assets/splash.png",
-    reload: "/systems/ose/assets/reload.png",
-    charge: "/systems/ose/assets/charge.png",
+    melee: "/systems/rose/assets/melee.png",
+    missile: "/systems/rose/assets/missile.png",
+    slow: "/systems/rose/assets/slow.png",
+    twohanded: "/systems/rose/assets/twohanded.png",
+    blunt: "/systems/rose/assets/blunt.png",
+    brace: "/systems/rose/assets/brace.png",
+    splash: "/systems/rose/assets/splash.png",
+    reload: "/systems/rose/assets/reload.png",
+    charge: "/systems/rose/assets/charge.png",
   },
   monster_saves: {
     0: {

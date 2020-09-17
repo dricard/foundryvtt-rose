@@ -1,5 +1,5 @@
 import { RoseActor } from "./entity.js";
-import { OseEntityTweaks } from "../dialog/entity-tweaks.js";
+import { RoseEntityTweaks } from "../dialog/entity-tweaks.js";
 
 export class RoseActorSheet extends ActorSheet {
   constructor(...args) {
@@ -234,7 +234,7 @@ export class RoseActorSheet extends ActorSheet {
 
   _onConfigureActor(event) {
     event.preventDefault();
-    new OseEntityTweaks(this.actor, {
+    new RoseEntityTweaks(this.actor, {
       top: this.position.top + 40,
       left: this.position.left + (this.position.width - 400) / 2,
     }).render(true);

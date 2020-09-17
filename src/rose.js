@@ -75,7 +75,7 @@ Hooks.once("setup", function () {
 
 Hooks.once("ready", async () => {
   Hooks.on("hotbarDrop", (bar, data, slot) =>
-    macros.createOseMacro(data, slot)
+    macros.createRoseMacro(data, slot)
   );
 });
 

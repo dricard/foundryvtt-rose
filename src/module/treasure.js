@@ -36,7 +36,7 @@ function drawTreasure(table, data) {
     return roll.total <= chance;
   };
   data.treasure = {};
-  if (table.getFlag('ose', 'treasure')) {
+  if (table.getFlag('rose', 'treasure')) {
     table.results.forEach((r) => {
       if (percent(r.weight)) {
         const text = table._getResultChatText(r);
@@ -82,13 +82,13 @@ async function rollTreasure(table, options = {}) {
   }
 
   let html = await renderTemplate(
-    "systems/ose/templates/chat/roll-treasure.html",
+    "systems/rose/templates/chat/roll-treasure.html",
     templateData
   );
 
   let chatData = {
     content: html,
-    // sound: "/systems/ose/assets/coins.mp3"
+    // sound: "/systems/rose/assets/coins.mp3"
   }
 
   let rollMode = game.settings.get("core", "rollMode");

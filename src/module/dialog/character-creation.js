@@ -1,13 +1,13 @@
 import { RoseActor } from '../actor/entity.js';
-import { OseDice } from "../dice.js";
+import { RoseDice } from "../dice.js";
 
-export class OseCharacterCreator extends FormApplication {
+export class RoseCharacterCreator extends FormApplication {
   static get defaultOptions() {
     const options = super.defaultOptions;
     options.classes = ["rose", "dialog", "creator"],
       options.id = 'character-creator';
     options.template =
-      'systems/ose/templates/actors/dialogs/character-creation.html';
+      'systems/rose/templates/actors/dialogs/character-creation.html';
     options.width = 235;
     return options;
   }
@@ -93,7 +93,7 @@ export class OseCharacterCreator extends FormApplication {
       }
     };
     // Roll and return
-    return OseDice.Roll({
+    return RoseDice.Roll({
       event: options.event,
       parts: rollParts,
       data: data,
@@ -122,7 +122,7 @@ export class OseCharacterCreator extends FormApplication {
       stats: this.object.data.stats,
       gold: gold
     }
-    const content = await renderTemplate("/systems/ose/templates/chat/roll-creation.html", templateData)
+    const content = await renderTemplate("/systems/rose/templates/chat/roll-creation.html", templateData)
     ChatMessage.create({
       content: content,
       speaker,
@@ -159,7 +159,7 @@ export class OseCharacterCreator extends FormApplication {
     const itemData = {
       name: "GP",
       type: "item",
-      img: "/systems/ose/assets/gold.png",
+      img: "/systems/rose/assets/gold.png",
       data: {
         treasure: true,
         cost: 1,
