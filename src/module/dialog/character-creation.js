@@ -86,7 +86,7 @@ export class RoseCharacterCreator extends FormApplication {
     this.object.data.counters[score]++;
 
     const label = score != "gold" ? game.i18n.localize(`ROSE.scores.${score}.long`) : "Gold";
-    const rollParts = ["3d6"];
+    const rollParts = ["4d6kh3"];
     const data = {
       roll: {
         type: "result"
