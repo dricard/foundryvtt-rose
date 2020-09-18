@@ -21,7 +21,7 @@ export class RoseActorSheetCharacter extends RoseActorSheet {
     return mergeObject(super.defaultOptions, {
       classes: ["rose", "sheet", "actor", "character"],
       template: "systems/rose/templates/actors/character-sheet.html",
-      width: 450,
+      width: 500,
       height: 530,
       resizable: true,
       tabs: [
