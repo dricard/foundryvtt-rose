@@ -157,7 +157,7 @@ export class RoseCharacterCreator extends FormApplication {
     // Generate gold
     let gold = event.target.elements.namedItem('gold').value;
     const itemData = {
-      name: "GP",
+      name: "q",
       type: "item",
       img: "/systems/rose/assets/gold.png",
       data: {
