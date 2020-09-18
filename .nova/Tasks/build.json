@@ -2,7 +2,7 @@
   "actions" : {
     "build" : {
       "enabled" : true,
-      "script" : "gulp execBuild"
+      "script" : "gulp build"
     }
   },
   "identifier" : "31621919-A22B-4C99-9CE2-E0E2181A5237",
