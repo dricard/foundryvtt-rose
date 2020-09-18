@@ -85,7 +85,7 @@ export class RoseCharacterCreator extends FormApplication {
     // Increase counter
     this.object.data.counters[score]++;
 
-    const label = score != "gold" ? game.i18n.localize(`ROSE.scores.${score}.long`) : "Gold";
+    const label = score != "gold" ? game.i18n.localize(`ROSE.scores.${score}.long`) : "Quid";
     const rollParts = ["4d6kh3"];
     const data = {
       roll: {
