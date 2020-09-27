@@ -23,7 +23,9 @@ export class RoseCombat {
         return;
       }
       if (data.combatants[i].actor.data.data.isSlow) {
-        data.combatants[i].initiative = -789;
+        // ROSE Specific: slow weapons give a -2 to init instead of going last
+        // data.combatants[i].initiative = -789;
+        data.combatants[i].initiative -= 2;
       } else {
         data.combatants[i].initiative =
           groups[data.combatants[i].flags.rose.group].initiative;
