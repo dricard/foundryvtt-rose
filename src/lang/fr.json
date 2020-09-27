@@ -146,7 +146,9 @@
   "ROSE.NativePlus1": "Natale + 1",
   "ROSE.NativePlus2": "Natale + 2",
   "ROSE.NativePlus3": "Natale + 3",
-
+  "ROSE.InitialSpells": "# sorts de départ",
+  "ROSE.CopyScrolls": "Copier des parchemins",
+  
   "ROSE.NPCReaction": "Réaction",
   "ROSE.RetainersMax": "#Suivants",
 

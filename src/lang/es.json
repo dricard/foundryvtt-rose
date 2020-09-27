@@ -131,7 +131,9 @@
   "ROSE.Illiterate": "Analfabeto",
   "ROSE.NPCReaction": "Reacción NPC",
   "ROSE.RetainersMax": "#Seguidores",
-
+  "ROSE.InitialSpells": "Initial # spells",
+  "ROSE.CopyScrolls": "Copy Scrolls",
+  
   "ROSE.category.attributes": "Atributos",
   "ROSE.category.inventory": "Inventario",
   "ROSE.category.abilities": "Habilidades",

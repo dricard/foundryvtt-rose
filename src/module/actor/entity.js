@@ -723,5 +723,27 @@ export class RoseActor extends Actor {
       spoken,
       data.scores.int.value
     );
-  }
+    
+    const initialSpells = {
+      0: 0,
+      3: 1,
+      9: 2,
+      13: 3,
+      16: 4,
+      18: 5,
+    };
+    data.scores.int.initialSpells = RoseActor._valueFromTable(initialSpells, data.scores.int.value);
+
+    const copyScrolls = {
+          0: "0%",
+          3: "20%",
+          4: "30%",
+          6: "50%",
+          9: "70%",
+          13: "75%",
+          16: "85%",
+          18: "90%",
+        };
+        data.scores.int.copyScrolls = RoseActor._valueFromTable(copyScrolls, data.scores.int.value);
+      }
 }
