@@ -44,7 +44,8 @@ export class RoseCharacterCreator extends FormApplication {
     data.stats = {
       sum: 0,
       avg: 0,
-      std: 0
+      std: 0,
+      cnt: 0
     }
     return data;
   }
@@ -64,11 +65,13 @@ export class RoseCharacterCreator extends FormApplication {
     let sum = values.reduce((a, b) => a + b);
     let mean = parseFloat(sum) / n;
     let std = Math.sqrt(values.map(x => Math.pow(x - mean, 2)).reduce((a, b) => a + b) / n);
-
+    let count = this.object.data.stats.cnt;
+    
     let stats = list.siblings('.roll-stats');
     stats.find('.sum').text(sum);
     stats.find('.avg').text(Math.round(10 * sum / n) / 10);
     stats.find('.std').text(Math.round(100 * std) / 100);
+    stats.find('.cnt').text(count);
 
     if (n >= 6) {
       $(ev.currentTarget).closest('form').find('button[type="submit"]').removeAttr('disabled');
@@ -77,14 +80,16 @@ export class RoseCharacterCreator extends FormApplication {
     this.object.data.stats = {
       sum: sum,
       avg: Math.round(10 * sum / n) / 10,
-      std: Math.round(100 * std) / 100
+      std: Math.round(100 * std) / 100,
+      cnt: count
     }
   }
 
   rollScore(score, options = {}) {
     // Increase counter
     this.object.data.counters[score]++;
-
+    this.object.data.stats.cnt++;
+    
     const label = score != "gold" ? game.i18n.localize(`ROSE.scores.${score}.long`) : "Quid";
     const rollParts = ["4d6kh3"];
     const data = {
