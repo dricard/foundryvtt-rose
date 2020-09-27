@@ -8,7 +8,7 @@ export class RoseCharacterCreator extends FormApplication {
       options.id = 'character-creator';
     options.template =
       'systems/rose/templates/actors/dialogs/character-creation.html';
-    options.width = 235;
+    options.width = 250;
     return options;
   }
 

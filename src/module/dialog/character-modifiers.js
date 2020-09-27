@@ -8,7 +8,7 @@ export class RoseCharacterModifiers extends FormApplication {
     options.id = 'sheet-modifiers';
     options.template =
       'systems/rose/templates/actors/dialogs/modifiers-dialog.html';
-    options.width = 240;
+    options.width = 260;
     return options;
   }
 
