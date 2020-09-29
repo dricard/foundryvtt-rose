@@ -170,17 +170,17 @@
       }
     },
     "item": {
-      "templates": ["trade"],
-      "description": "",
+      "templates": ["common", "trade"],
       "quantity": {
         "value": 1,
-        "max": 0
+        "max": 1
       },
-      "treasure": false,
-      "weight": 0
+      "container": false,
+      "containerWeight": 0,
+      "treasure": false
     },
     "weapon": {
-      "templates": ["trade"],
+      "templates": ["common", "trade"],
       "range": {
         "short": 0,
         "medium": 0,
@@ -196,40 +196,38 @@
       "missile": false,
       "melee": true,
       "equipped": false,
-      "weight": 0,
       "counter": {
         "value": 0,
         "max": 0
       }
     },
     "armor": {
-      "templates": ["trade"],
+      "templates": ["common", "trade"],
       "description": "",
       "ac": 9,
       "aac": 10,
       "type": "light",
-      "equipped": false,
-      "weight": 0
+      "equipped": false
     },
     "spell": {
+      "templates": ["common"],
       "lvl": 1,
       "class": "Magic-User",
       "duration": "",
       "range": "",
       "roll": "",
-      "description": "",
       "memorized": 0,
       "cast": 0,
       "save": ""
     },
     "ability": {
+      "templates": ["common"],
       "pattern": "white",
       "requirements": "",
       "roll": "",
       "rollType": "result",
       "rollTarget": 0,
       "blindroll": false,
-      "description": "",
       "save": ""
     }
   }
