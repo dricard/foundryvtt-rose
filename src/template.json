@@ -157,17 +157,30 @@
   },
   "Item": {
     "types": ["item", "weapon", "armor", "spell", "ability"],
+    "templates": {
+      "common": {
+        "description": ""
+      },
+      "trade": {
+        "cost": {
+          "value": 0,
+          "coinType": ""
+        },
+        "weight": 0
+      }
+    },
     "item": {
+      "templates": ["trade"],
       "description": "",
       "quantity": {
         "value": 1,
         "max": 0
       },
       "treasure": false,
-      "cost": 0,
       "weight": 0
     },
     "weapon": {
+      "templates": ["trade"],
       "range": {
         "short": 0,
         "medium": 0,
@@ -182,7 +195,6 @@
       "slow": false,
       "missile": false,
       "melee": true,
-      "cost": 0,
       "equipped": false,
       "weight": 0,
       "counter": {
@@ -191,11 +203,11 @@
       }
     },
     "armor": {
+      "templates": ["trade"],
       "description": "",
       "ac": 9,
       "aac": 10,
       "type": "light",
-      "cost": 0,
       "equipped": false,
       "weight": 0
     },

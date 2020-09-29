@@ -160,17 +160,20 @@ export class RoseCharacterCreator extends FormApplication {
   async _onSubmit(event, { updateData = null, preventClose = false, preventRender = false } = {}) {
     super._onSubmit(event, { updateData: updateData, preventClose: preventClose, preventRender: preventRender });
     // Generate gold
-    let gold = event.target.elements.namedItem('gold').value;
+    let quids = event.target.elements.namedItem('gold').value;
     const itemData = {
       name: "q",
       type: "item",
       img: "/systems/rose/assets/gold.png",
       data: {
         treasure: true,
-        cost: 1,
+        cost: {
+          value: 1,
+          coinType: "q"
+        },
         weight: 1,
         quantity: {
-          value: gold
+          value: quids
         }
       }
     };

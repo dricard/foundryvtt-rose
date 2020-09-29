@@ -593,7 +593,7 @@ export class RoseActor extends Actor {
       (i) => i.type == "item" && i.data.treasure
     );
     treasure.forEach((item) => {
-      total += item.data.quantity.value * item.data.cost;
+      total += item.data.quantity.value * item.data.cost.value;
     });
     data.treasure = total;
   }

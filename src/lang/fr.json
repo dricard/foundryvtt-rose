@@ -195,6 +195,7 @@
   "ROSE.items.Qualities": "Qualités",
   "ROSE.items.Notes": "Notes",
   "ROSE.items.Cost": "Coût",
+  "ROSE.items.CoinType": "Sous",
   "ROSE.items.Quantity": "Qt.",
   "ROSE.items.Roll": "Jet",
   "ROSE.items.BlindRoll": "Aveugle",

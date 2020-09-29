@@ -168,6 +168,7 @@
   "ROSE.items.Qualities": "Cualidades",
   "ROSE.items.Notes": "Notas",
   "ROSE.items.Cost": "Coste",
+  "ROSE.items.CoinType": "Coin",
   "ROSE.items.Quantity": "Qt.",
   "ROSE.items.Roll": "Tirada",
   "ROSE.items.BlindRoll": "Ciega",

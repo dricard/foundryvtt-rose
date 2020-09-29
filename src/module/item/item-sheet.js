@@ -20,7 +20,7 @@ export class RoseItemSheet extends ItemSheet {
       classes: ["rose", "sheet", "item"],
       width: 520,
       height: 390,
-      resizable: false,
+      resizable: true,
       tabs: [
         {
           navSelector: ".tabs",
