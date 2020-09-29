@@ -513,7 +513,11 @@ export class RoseActor extends Actor {
         item.type == "item" &&
         (["complete", "disabled"].includes(option) || item.data.treasure)
       ) {
-        totalWeight += item.data.quantity.value * item.data.weight;
+        if (item.data.containerWeight) {
+          totalWeight += item.data.quantity.value * item.data.weight + item.data.containerWeight;
+        } else {
+          totalWeight += item.data.quantity.value * item.data.weight;
+        }
       } else if (option != "basic" && ["weapon", "armor"].includes(item.type)) {
         totalWeight += item.data.weight;
       }

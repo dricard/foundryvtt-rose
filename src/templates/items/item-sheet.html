@@ -23,6 +23,12 @@
           </div>
         </div>
         <div class="form-group">
+          <label>{{localize 'ROSE.items.Container'}}</label>
+          <div class="form-fields">
+            <input type="checkbox" name="data.container" value="{{data.container}}" {{checked data.container}}  data-dtype="Boolean"/>
+          </div>
+        </div>
+        <div class="form-group">
           <label>{{localize 'ROSE.items.Cost'}}</label>
           <div class="form-fields">
             <input type="text" name="data.cost.value" value="{{data.cost.value}}" data-dtype="Number" />
@@ -31,13 +37,25 @@
         <div class="form-group">
           <label>{{localize 'ROSE.items.CoinType'}}</label>
           <div class="form-fields">
-            <input type="text" name="data.cost.coinType" value="{{data.cost.coinType}}"/>
+            <input type="text" name="data.cost.coinType" value="{{data.cost.coinType}}" data-dtype="String"/>
           </div>
         </div>
         <div class="form-group">
           <label>{{localize 'ROSE.items.Weight'}}</label>
           <div class="form-fields">
             <input type="text" name="data.weight" value="{{data.weight}}" data-dtype="Number" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>{{localize 'ROSE.items.ContainerWeight'}}</label>
+          <div class="form-fields">
+            <input type="text" name="data.containerWeight" value="{{data.containerWeight}}" data-dtype="Number" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>{{localize 'ROSE.items.TotalWeight'}}</label>
+          <div class="form-fields">
+            <input type="text" name="data.totalWeight" value="{{containerWeight data.quantity.value data.weight data.containerWeight}}" data-dtype="Number" />
           </div>
         </div>
       </div>
