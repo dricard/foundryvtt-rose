@@ -13,3 +13,4 @@ All notable changes to this project will be documented in this file.
 - change the character sheet inventory tab to display the new way of computing the weight, taking `containerWeight` into account;
 - added a few things to the "modifiers" dialog: initial number of spells and chance of copy scrolls;
 - change the effect of `slow` weapons on initiative: instead of going last, gives a -2 to initiative;
+- add basic Critical and Fumble rolls to character sheet
