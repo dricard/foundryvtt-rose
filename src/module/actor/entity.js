@@ -167,6 +167,34 @@ export class RoseActor extends Actor {
     });
   }
 
+  rollFumble(options = {}) {
+    const label = game.i18n.localize(`ROSE.Fumble`);
+
+    let r = new Roll("4d6 - @levelMod", {levelMod: this.data.data.details.level});
+    // The parsed terms of the roll formula
+    console.log(r.terms);    // [Die, +, 2, +, 4]
+    r.evaluate().toMessage({
+      speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+      flavor: label
+    });
+    console.log(r.result);
+    console.log(r.total);
+  }
+
+  rollCritical(options = {}) {
+        const label = game.i18n.localize(`ROSE.Critical`);
+    
+        let r = new Roll("1d20 + @strMod", {strMod: this.data.data.scores.str.mod});
+        // The parsed terms of the roll formula
+        console.log(r.terms);    // [Die, +, 2, +, 4]
+        r.evaluate().toMessage({
+          speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+          flavor: label
+        });
+        console.log(r.result);
+        console.log(r.total);
+      }
+    
   rollLoyalty(options = {}) {
     const label = game.i18n.localize(`ROSE.roll.loyalty`);
     const rollParts = ["2d6"];

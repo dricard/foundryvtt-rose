@@ -102,7 +102,11 @@
   "ROSE.HealthShort": "PV",
   "ROSE.HitDice": "Dé de Vie",
   "ROSE.HitDiceShort": "DV",
-
+  "ROSE.CritFumble": "Critical and Fumble",
+  "ROSE.CritFumbleShort": "C/F",
+  "ROSE.Fumble": "Fumble",
+  "ROSE.Critical": "Critical",
+  
   "ROSE.movement.base": "Déplacement",
   "ROSE.movement.short": "DP",
   "ROSE.movement.details": "Détail du Déplacement",

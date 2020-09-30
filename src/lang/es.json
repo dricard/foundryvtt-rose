@@ -91,7 +91,11 @@
   "ROSE.HealthShort": "PG",
   "ROSE.HitDice": "Puntos de Golpe",
   "ROSE.HitDiceShort": "DG",
-  
+  "ROSE.CritFumble": "Critical and Fumble",
+  "ROSE.CritFumbleShort": "C/F",
+  "ROSE.Fumble": "Fumble",
+  "ROSE.Critical": "Critical",
+    
   "ROSE.movement.base": "Movimiento",
   "ROSE.movement.short": "MV",
   "ROSE.movement.details": "Detalles de Movimiento",

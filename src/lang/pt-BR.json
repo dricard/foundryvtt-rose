@@ -101,7 +101,11 @@
   "ROSE.HealthShort": "PV",
   "ROSE.HitDice": "Dados de Vida",
   "ROSE.HitDiceShort": "DV",
-
+  "ROSE.CritFumble": "Critical and Fumble",
+  "ROSE.CritFumbleShort": "C/F",
+  "ROSE.Fumble": "Fumble",
+  "ROSE.Critical": "Critical",
+    
   "ROSE.movement.base": "Taxa de Movimento",
   "ROSE.movement.short": "TM",
   "ROSE.movement.details": "Detalhes do movimento",

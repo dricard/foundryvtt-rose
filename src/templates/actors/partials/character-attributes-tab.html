@@ -108,6 +108,19 @@
                             data-dtype="String" />
                     </div>
                 </li>
+                <li class="attribute hit-dice">            
+                    <h4 class="attribute-name box-title" title="{{ localize 'ROSE.CritFumble' }}">
+                        <a>{{ localize "ROSE.CritFumbleShort" }}</a>
+                    </h4>
+                    <div class="naturals">
+                        <div class="critical-btn">
+                            <a data-action="critical" title="{{localize 'ROSE.CritFumble'}}"><i class="fas fa-thumbs-up"></i></a>
+                        </div>
+                        <div class="fumble-btn">
+                            <a data-action="fumble" title="{{localize 'ROSE.CritFumble'}}"><i class="fas fa-thumbs-down"></i></a>
+                        </div>
+                    </div>
+                </li>
                 {{#if config.initiative}}
                 <li class="attribute">
                     <h4 class="attribute-name box-title" title="{{ localize 'ROSE.Initiative' }}">

@@ -96,6 +96,22 @@
         }
       }
     }
+    .naturals {
+      heigh: 70px;
+      position: relative;
+      padding-top: 10px;
+      padding-left: 5px;
+      .critical-btn {
+        position: absolute;
+        left: 8px;
+        top: 10px;
+      }
+      .fumble-btn {
+        position: absolute;
+        left: 31px;
+        top: 10px;
+      }
+    }
     .health {
       &.armor-class {
         background: url('/systems/rose/assets/shield.png') no-repeat center;

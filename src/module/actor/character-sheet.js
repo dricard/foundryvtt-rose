@@ -131,6 +131,20 @@ export class RoseActorSheetCharacter extends RoseActorSheet {
     }).render(true);
   }
 
+  _onRollCritical(event) {
+      event.preventDefault();
+      console.log('Critical Event')
+      let actorObject = this.actor;
+      actorObject.rollCritical({ event: event });
+    }
+
+  _onRollFumble(event) {
+      event.preventDefault();
+      console.log('Fumble Event')
+      let actorObject = this.actor;
+      actorObject.rollFumble({ event: event });
+    }
+    
   /**
    * Activate event listeners using the prepared sheet HTML
    * @param html {HTML}   The prepared HTML object ready to be rendered into the DOM
@@ -180,6 +194,14 @@ export class RoseActorSheetCharacter extends RoseActorSheet {
       this._onShowModifiers(ev);
     });
 
+    html.find("a[data-action='critical']").click((ev) => {
+      this._onRollCritical(ev);
+    });
+
+    html.find("a[data-action='fumble']").click((ev) => {
+      this._onRollFumble(ev);
+    });
+      
     // Everything below here is only needed if the sheet is editable
     if (!this.options.editable) return;
 
