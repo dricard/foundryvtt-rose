@@ -3,6 +3,10 @@
     "build" : {
       "enabled" : true,
       "script" : "gulp build"
+    },
+    "run" : {
+      "enabled" : true,
+      "script" : "cd \/Users\/dr\/Library\/Application\\ Support\/FoundryVTT\/Data\/systems\/rose\/\nrm -r -f *\ncp -r \/Users\/dr\/foundryvtt-rose\/dist\/  \/Users\/dr\/Library\/Application\\ Support\/FoundryVTT\/Data\/systems\/rose\/"
     }
   },
   "identifier" : "31621919-A22B-4C99-9CE2-E0E2181A5237",

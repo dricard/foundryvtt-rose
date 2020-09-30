@@ -1,9 +1,0 @@
-{
-  "actions" : {
-    "run" : {
-      "enabled" : true,
-      "script" : "cd \/Users\/dr\/Library\/Application\\ Support\/FoundryVTT\/Data\/systems\/rose\/\nrm -r -f *\ncp -r \/Users\/dr\/foundryvtt-rose\/dist\/  \/Users\/dr\/Library\/Application\\ Support\/FoundryVTT\/Data\/systems\/rose\/"
-    }
-  },
-  "identifier" : "4ECAA697-04DD-4DAC-8B33-2C4A0FB4F29A"
-}
