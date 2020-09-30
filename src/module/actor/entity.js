@@ -627,6 +627,7 @@ export class RoseActor extends Actor {
     treasure.forEach((item) => {
       total += item.data.quantity.value * item.data.cost.value;
     });
+    total = total.toFixed(3);
     data.treasure = total;
   }
 

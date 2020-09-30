@@ -34,6 +34,10 @@ export const registerHelpers = async function () {
     return parseFloat(lh) * parseFloat(rh);
   });
 
+  Handlebars.registerHelper("mult3", function (lh, rh) {
+    return (parseFloat(lh) * parseFloat(rh)).toFixed(3);
+  });
+  
   Handlebars.registerHelper("containerWeight", function (qt, ea, mt) {
       return mt
       ? (parseFloat(qt) * parseFloat(ea)) + parseFloat(mt)
