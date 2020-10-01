@@ -103,7 +103,7 @@
   "ROSE.HitDice": "Hit Dice",
   "ROSE.HitDiceShort": "HD",
   "ROSE.CritFumble": "Critical and Fumble",
-  "ROSE.CritFumbleShort": "C/F",
+  "ROSE.CritFumbleShort": "C / F",
   "ROSE.Fumble": "Fumble (4d6 - Lv ≤ DEX)",
   "ROSE.Critical": "Critical",
   
